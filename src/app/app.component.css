@@ -1,0 +1,15 @@
+.menu {
+  display: flex;
+  justify-content: space-between;
+}
+.menu__navbar {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.menu__navbar-link {
+  padding: 0 10px;
+}
+
+/*# sourceMappingURL=app.component.css.map */

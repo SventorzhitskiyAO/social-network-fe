@@ -1,0 +1,133 @@
+.user-inf {
+  padding: 25px;
+
+  h2 {
+    padding: 10px 0;
+  }
+}
+
+
+.information {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  @media (max-width: 1400.999px) {
+    justify-content: center;
+  }
+
+  @media (max-width: 990.999px) {
+    flex-wrap: wrap
+  }
+  //padding-top: 100px;
+
+  &-avatar {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    @media (max-width: 990.999px) {
+      width: 80%;
+      background-color: #fefefe;
+    }
+
+    &-img {
+      width: 200px;
+      margin-bottom: .75rem;
+      border-radius: 1rem;
+      margin-top: -150px;
+      border: solid 2px #FFF;
+      background: rgba(255, 255, 255, 0.8);
+      transition: all ease .5s;
+      overflow: hidden;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      @media (max-width: 990.999px) {
+        //width: 100px;
+        border-radius: 50%;
+      }
+    }
+
+    &-name {
+      font-size: 20px;
+      padding-bottom: 1rem;
+    }
+  }
+
+  &-nav {
+    width: 50%;
+    display: flex;
+
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    text-align: center;
+
+    @media (max-width: 990.999px) {
+      width: 100%;
+      justify-content: center;
+    }
+
+    svg {
+      width: 30px;
+    }
+
+    &-element {
+      padding: 20px 15px 20px;
+      cursor: pointer;
+    }
+
+    &-element:hover &-name {
+      color: #6f42c1;
+    }
+
+    &-element:hover &-img {
+      fill: #6f42c1;
+    }
+
+    &-img {
+      transition: all ease .3s;
+      fill: #838daa;
+      padding-bottom: 5px;
+    }
+
+    &-name {
+      transition: all ease .3s;
+      color: #838daa;
+    }
+  }
+}
+
+.border {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #e7edf2;
+  }
+}
+
+.cover-image {
+  height: 280px;
+  background-image: url(https://mythemestore.com/beehive-preview/wp-content/uploads/buddypress/members/1/cover-image/5e2c54d7ce216-bp-cover-image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.change-photo {
+  display: none;
+}
+
+
+
+
