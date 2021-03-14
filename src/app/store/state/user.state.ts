@@ -1,7 +1,7 @@
 import {UserInterface} from '../../user/shared/interfaces/user.interface';
 
 export interface UserState {
-  users: UserInterface[] ;
+  users: UserInterface[];
   selectedUser: UserInterface;
   me: UserInterface;
 }

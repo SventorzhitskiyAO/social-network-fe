@@ -29,7 +29,7 @@ export class UserDeleteContainerComponent implements OnInit, OnDestroy{
   delete(): void {
     this.store.dispatch(new DeleteUser(this.id));
     UsersService.logOut();
-    this.router.navigate(['/users', 'login']);
+    this.router.navigate(['login']);
   }
 
   ngOnDestroy(): void {

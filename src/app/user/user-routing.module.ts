@@ -6,6 +6,10 @@ import {CreateUserPageComponent} from './create-user-page/create-user-page.compo
 import {UserContainerComponent} from './user-page/user-page.container.component';
 import {AuthGuard} from '../shared/guards/auth.guard';
 import {IsAuthGuard} from '../shared/guards/isAurhLogin.guard';
+import {UserChangeContainerComponent} from './shared/component/user-change/user-change.container.component';
+import {FriendComponent} from './shared/component/friend/friend.component';
+import {ProfileContainerComponent} from './shared/component/profile/profile.container.component';
+import {PostContainerComponent} from './shared/component/post/post.container.component';
 
 const UserRoutes: Routes = [
   {
@@ -31,8 +35,13 @@ const UserRoutes: Routes = [
   {
     path: ':id',
     component: UserContainerComponent,
-    pathMatch: 'full',
-    canActivate: [AuthGuard]
+    children: [
+      {path: '', component: PostContainerComponent, pathMatch: 'full'},
+      {path: 'profile', component: ProfileContainerComponent},
+      {path: 'setting', component: UserChangeContainerComponent},
+      {path: 'friend', component: FriendComponent}
+      ],
+    canActivate: [AuthGuard],
   },
 ];
 
@@ -41,5 +50,4 @@ const UserRoutes: Routes = [
     RouterModule.forChild(UserRoutes)],
   exports: [RouterModule]
 })
-export class UserRoutingModule {
-}
+export class UserRoutingModule {}

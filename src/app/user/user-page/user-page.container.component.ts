@@ -6,16 +6,18 @@ import {AppState} from '../../store/state/app.state';
 import {Store} from '@ngrx/store';
 import {GetUser, IsAuth} from '../../store/actions/user.action';
 import {authMe, selectSelectedUser} from '../../store/selectors/user.selectors';
+import {selectPostList} from '../../store/selectors/post.selectors';
 
 @Component({
   selector: 'app-user-container',
-  template: `<app-user *ngIf="user$ | async as user" [user]="user" [me]="me$ | async"></app-user>`,
+  template: `<app-user *ngIf="user$ | async as user" [user]="user" [me]="me$ | async" [post]="post$ | async"></app-user>`,
 })
 export class UserContainerComponent implements OnInit, OnDestroy{
   id: string;
   private subscription: Subscription;
   user$ = this.store.select(selectSelectedUser);
   me$ = this.store.select(authMe);
+  post$ = this.store.select(selectPostList);
 
   constructor(
     private activateRoute: ActivatedRoute,

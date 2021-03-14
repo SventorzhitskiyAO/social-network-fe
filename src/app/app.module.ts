@@ -22,6 +22,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { MusicComponent } from './music/music.component';
 import { MeetingComponent } from './meeting/meeting.component';
 import { DialogComponent } from './dialog/dialog.component';
+import {PostEffects} from './store/effects/post.effects';
+import {PostService} from './user/shared/services/post.service';
 
 @NgModule({
   declarations: [
@@ -41,16 +43,16 @@ import { DialogComponent } from './dialog/dialog.component';
     MatToolbarModule,
     StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({ logOnly: environment.production }),
-    EffectsModule.forRoot([UserEffects, ConfigEffects]),
+    EffectsModule.forRoot([UserEffects, ConfigEffects, PostEffects]),
     StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
   ],
   providers: [
     UsersService,
+    PostService,
     {
       provide: HTTP_INTERCEPTORS,
       multi: true,
       useClass: TokenInterceptor
-
     }
   ],
   bootstrap: [AppComponent]

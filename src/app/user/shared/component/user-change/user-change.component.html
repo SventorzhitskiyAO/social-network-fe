@@ -1,38 +1,116 @@
-<h2>Change user</h2>
-<form [formGroup]="myForm" novalidate (ngSubmit)="submit()" >
-  <div class="form-group">
-    <mat-form-field appearance="legacy">
-      <mat-label>Enter your name</mat-label>
-      <label>
-        <input matInput placeholder="Name" autocomplete="off" class="form-control" name="name" formControlName="name">
-      </label>
-    </mat-form-field>
-  </div>
-  <div class="form-group">
-    <mat-form-field appearance="legacy">
-      <mat-label>Enter your login</mat-label>
-      <label>
-        <input matInput placeholder="Login" autocomplete="off" class="form-control" name="login" formControlName="login">
-      </label>
-    </mat-form-field>
-  </div>
-  <div class="form-group">
-    <mat-form-field appearance="legacy">
-      <mat-label>Enter your password</mat-label>
-      <label>
-        <input matInput placeholder="Password" autocomplete="off" class="form-control" name="password" formControlName="password">
-      </label>
-    </mat-form-field>
-  </div>
-  <div class="form-group">
-    <mat-form-field appearance="legacy">
-      <mat-label>Password confirm</mat-label>
-      <label>
-        <input matInput placeholder="PasswordConfirm" autocomplete="off" class="form-control" name="passwordConfirm" formControlName="passwordConfirm">
-      </label>
-    </mat-form-field>
-  </div>
-  <div class="form-group">
-    <button mat-button [disabled]="myForm.invalid">To change</button>
-  </div>
-</form>
+<section class="container">
+  <form [formGroup]="myForm" novalidate (ngSubmit)="submit()" >
+<!--    firstName-->
+    <div class="form-group">
+      <mat-form-field appearance="legacy" class="form-field">
+        <mat-label>Enter your name</mat-label>
+        <label>
+          <input matInput placeholder="Name" autocomplete="off" class="form-control" name="firstName" formControlName="firstName">
+        </label>
+      </mat-form-field>
+    </div>
+<!--    secondName-->
+    <div class="form-group">
+      <mat-form-field appearance="legacy" class="form-field">
+        <mat-label>Enter your second name</mat-label>
+        <label>
+          <input matInput placeholder="SecondName" autocomplete="off" class="form-control" name="secondName" formControlName="secondName">
+        </label>
+      </mat-form-field>
+    </div>
+<!--    login-->
+    <div class="form-group">
+      <mat-form-field appearance="legacy" class="form-field">
+        <mat-label>Enter your login</mat-label>
+        <label>
+          <input matInput placeholder="Login" autocomplete="off" class="form-control" name="login" formControlName="login">
+        </label>
+      </mat-form-field>
+    </div>
+<!--    email-->
+    <div class="form-group">
+      <mat-form-field appearance="legacy" class="form-field">
+        <mat-label>Enter your email</mat-label>
+        <label>
+          <input matInput placeholder="example@gmail.com" autocomplete="off" class="form-control" name="email" formControlName="email">
+        </label>
+      </mat-form-field>
+    </div>
+<!--    facebook-->
+    <div class="form-group">
+      <mat-form-field appearance="legacy" class="form-field">
+        <mat-label>Enter your facebook</mat-label>
+        <label>
+          <input matInput placeholder="facebook.com" autocomplete="off" class="form-control" name="facebook" formControlName="facebook">
+        </label>
+      </mat-form-field>
+    </div>
+<!--    vk-->
+    <div class="form-group">
+      <mat-form-field appearance="legacy" class="form-field">
+        <mat-label>Enter your vk</mat-label>
+        <label>
+          <input matInput placeholder="vk.com" autocomplete="off" class="form-control" name="vk" formControlName="vk">
+        </label>
+      </mat-form-field>
+    </div>
+<!--    github-->
+    <div class="form-group">
+      <mat-form-field appearance="legacy" class="form-field">
+        <mat-label>Enter your Github</mat-label>
+        <label>
+          <input matInput placeholder="github.com" autocomplete="off" class="form-control" name="github" formControlName="github">
+        </label>
+      </mat-form-field>
+    </div>
+<!--    instagram-->
+    <div class="form-group">
+      <mat-form-field appearance="legacy" class="form-field">
+        <mat-label>Enter your instagram</mat-label>
+        <label>
+          <input matInput placeholder="instagram.com" autocomplete="off" class="form-control" name="instagram" formControlName="instagram">
+        </label>
+      </mat-form-field>
+    </div>
+<!--    skill-->
+    <div class="form-group">
+      <mat-form-field appearance="legacy" class="form-field">
+        <mat-label>Enter your skill</mat-label>
+        <label>
+          <input matInput placeholder="HTML, CSS and other" autocomplete="off" class="form-control" name="skill" formControlName="skill">
+        </label>
+      </mat-form-field>
+    </div>
+<!--    aboutMe-->
+    <div class="form-group">
+      <mat-form-field appearance="legacy" class="form-field">
+        <mat-label>Enter about you</mat-label>
+        <label>
+          <input matInput placeholder="About me" autocomplete="off" class="form-control" name="aboutMe" formControlName="aboutMe">
+        </label>
+      </mat-form-field>
+    </div>
+<!--    Password-->
+    <div class="form-group">
+      <mat-form-field appearance="legacy" class="form-field">
+        <mat-label>Enter your password</mat-label>
+        <label>
+          <input matInput placeholder="Password" autocomplete="off" class="form-control" name="password" formControlName="password">
+        </label>
+      </mat-form-field>
+    </div>
+<!--    ConfirmPassword-->
+    <div class="form-group">
+      <mat-form-field appearance="legacy" class="form-field">
+        <mat-label>Password confirm</mat-label>
+        <label>
+          <input matInput placeholder="PasswordConfirm" autocomplete="off" class="form-control" name="passwordConfirm" formControlName="passwordConfirm">
+        </label>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <button mat-button [disabled]="myForm.invalid">To change</button>
+    </div>
+  </form>
+  <app-user-delete-container></app-user-delete-container>
+</section>

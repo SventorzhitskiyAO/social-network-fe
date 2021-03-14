@@ -19,8 +19,7 @@ export class UserEffects {
   constructor(
     private userServices: UsersService,
     private actions$: Actions,
-  ) {
-  }
+  ) {}
 
   getUser$ = createEffect(() => {
     return this.actions$.pipe(

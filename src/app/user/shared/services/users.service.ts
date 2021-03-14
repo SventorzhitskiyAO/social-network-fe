@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {BehaviorSubject, Observable, Subscription, throwError} from 'rxjs';
+import {BehaviorSubject, Observable, throwError} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
 import {LoginInterface} from '../interfaces/login.interface';
 import {UserChangeInterface} from '../interfaces/user-change.interface';
@@ -17,7 +17,6 @@ export class UsersService {
   }
 
   url = 'http://localhost:3000';
-  subscription$: Subscription;
   errors$: BehaviorSubject<string> = new BehaviorSubject(null);
   error: string;
 
@@ -54,6 +53,7 @@ export class UsersService {
   }
 
   change(body: UserChangeInterface): Observable<any> {
+    console.log(body);
     return this.http.put(`${this.url}/users/${body.id}`, body);
   }
 

@@ -1,7 +1,16 @@
 export class UserInterface {
   _id: string;
   login: string;
-  name: string;
-  password: string;
+  email: string;
+  firstName: string;
+  secondName: string;
+  avatar: string;
   role: string;
+  password: string;
+  facebook: string;
+  vk: string;
+  github: string;
+  instagram: string;
+  skill: string;
+  aboutMe: string;
 }

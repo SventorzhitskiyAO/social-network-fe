@@ -1,0 +1,107 @@
+.post {
+  //border-bottom: 1px solid #e7edf2;
+  position: relative;
+  padding: 25px 15px;
+  box-shadow: 15px 10px 80px rgb(58 46 68 / 8%);
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    height: 1px;
+    background-color: #e7edf2;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &-form {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 95%;
+    margin: 25px auto;
+  }
+
+  &-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  &__img {
+    width: 75px;
+    height: 75px;
+    border-radius: 40px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding-left: 20px;
+
+    &-name {
+      padding-bottom: 5px;
+    }
+  }
+
+  &-text {
+    padding: 20px 0 10px;
+  }
+
+  &-footer {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+
+  .svg {
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all ease .3s;
+
+    &:hover {
+      svg {
+        fill: #6f42c1;
+      }
+    }
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+
+.delete {
+  position: absolute;
+  right: 20px;
+  top: 25px;
+  width: 10px;
+  height: 10px;
+  opacity: 0.3;
+  transition: all ease .3s;
+  cursor: pointer;
+}
+
+.delete:hover {
+  opacity: 1;
+}
+
+.delete:before, .delete:after {
+  position: absolute;
+  content: ' ';
+  height: 15px;
+  width: 2px;
+  background-color: #727272;
+}
+
+.delete:before {
+  transform: rotate(45deg);
+}
+
+.delete:after {
+  transform: rotate(-45deg);
+}

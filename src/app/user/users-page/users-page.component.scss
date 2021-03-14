@@ -1,20 +1,77 @@
 .user {
+  width: 45%;
+  padding-top: 50px;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
-  padding: 25px;
-  margin: 5px 0;
+  flex-wrap: nowrap;
+  align-items: center;
+  box-sizing: border-box;
   transition: all ease .3s;
-
-  &__prop {
-    width: 40%;
-  }
+  box-shadow: 15px 15px 20px rgba(58, 46, 68, 0.04);
 
   &:hover {
-    color: #d95fd9;
+    box-shadow: 15px 15px 20px rgba(58, 46, 68, 0.08);
   }
 
-  &__title {
-    padding: 25px;
+  @media (max-width: 768.999px) {
+    width: 95%;
+  }
+
+  &-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    transition: all ease .5s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &-info {
+    display: block;
+    text-align: center;
+    padding: 20px 0;
+    color: #29292d;
+    transition: all ease .3s;
+    font-size: 20px;
+
+    &:hover {
+      color: #6f42c1;
+    }
+
+    @media (max-width: 767.999px) {
+      font-size: 15px;
+    }
+  }
+
+  &-container {
+    margin: 0 auto;
+    width: 750px;
+    border-left: solid 1px #e7edf2;
+    border-right: solid 1px #e7edf2;
+    padding-top: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    @media (max-width: 768.999px) {
+      width: 100%;
+    }
+  }
+}
+
+.user-button {
+  width: 100%;
+  color: #29292d;
+
+  .button {
+    width: 100%;
+    transition: all ease .3s;
+
+    &:hover {
+      color: #6f42c1;
+    }
   }
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, EventEmitter, OnChanges, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UsersService} from '../shared/services/users.service';
 
@@ -10,7 +10,6 @@ import {UsersService} from '../shared/services/users.service';
 export class LoginPageComponent implements OnInit {
   constructor(
     public ser: UsersService,
-    // public cd: ChangeDetectorRef
   ) {}
 
   @Output()
@@ -27,13 +26,5 @@ export class LoginPageComponent implements OnInit {
 
   login(): void{
     this.submitLog.emit(this.myForm.value);
-    // this.ser.errors$.subscribe(res => {
-    //   console.log(res);
-    // });
-    setTimeout(() => {
-      this.ser.errors$.subscribe(res => {
-        console.log(res);
-      });
-    }, 2000);
   }
 }

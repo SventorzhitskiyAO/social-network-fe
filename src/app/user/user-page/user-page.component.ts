@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserInterface} from '../shared/interfaces/user.interface';
+import {PostInterface} from '../shared/interfaces/post.interface';
 
 @Component({
   selector: 'app-user',
@@ -14,6 +15,9 @@ export class UserPageComponent implements OnInit{
   @Input()
   me: UserInterface;
 
+  @Input()
+  post: PostInterface[];
+
   @Output()
   submitUpdate: EventEmitter<UserInterface> = new EventEmitter<UserInterface>();
 
@@ -21,7 +25,7 @@ export class UserPageComponent implements OnInit{
 
   ngOnInit(): void {
     this.myForm = new FormGroup({
-      name: new FormControl(this.user.name),
+      name: new FormControl(this.user.firstName),
       login: new FormControl(this.user.login),
       password: new FormControl('', Validators.pattern('[a-zA-Z0-9]{3,30}')),
       passwordConfirm: new FormControl('', Validators.pattern('[a-zA-Z0-9]{3,30}'))
@@ -30,5 +34,12 @@ export class UserPageComponent implements OnInit{
 
   submit(): void{
     this.submitUpdate.emit(this.myForm.value);
+  }
+
+  ImageSrc(): string {
+    if (this.user.avatar === '') {
+      return '../../../assets/images/user.png';
+    }
+    return this.user.avatar;
   }
 }

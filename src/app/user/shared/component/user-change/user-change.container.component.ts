@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Subscription} from 'rxjs';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {selectSelectedUser} from '../../../../store/selectors/user.selectors';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../../../store/state/app.state';
@@ -17,8 +17,10 @@ export class UserChangeContainerComponent implements OnInit, OnDestroy{
 
   constructor(
     private activateRoute: ActivatedRoute,
+    private router: Router,
     private store: Store<AppState>
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.subscription = this.activateRoute.params.subscribe(params => this.id = params.id);
@@ -30,9 +32,9 @@ export class UserChangeContainerComponent implements OnInit, OnDestroy{
         delete body[key];
       }
     }
-    body.id = this.id;
     this.store.dispatch(new ChangeUser(body));
     this.user$ = this.store.select(selectSelectedUser);
+    this.router.navigate(['users', body.id, 'profile']);
   }
 
   ngOnDestroy(): void {

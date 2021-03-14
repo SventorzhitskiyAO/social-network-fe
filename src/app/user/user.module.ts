@@ -24,6 +24,9 @@ import {UserChangeContainerComponent} from './shared/component/user-change/user-
 import { PostComponent } from './shared/component/post/post.component';
 import { FriendComponent } from './shared/component/friend/friend.component';
 import { ProfileComponent } from './shared/component/profile/profile.component';
+import {ProfileContainerComponent} from './shared/component/profile/profile.container.component';
+import {PostService} from './shared/services/post.service';
+import {PostContainerComponent} from './shared/component/post/post.container.component';
 
 @NgModule({
   declarations: [
@@ -38,8 +41,10 @@ import { ProfileComponent } from './shared/component/profile/profile.component';
     UserChangeComponent,
     UserDeleteContainerComponent,
     UserChangeContainerComponent,
+    PostContainerComponent,
     PostComponent,
     FriendComponent,
+    ProfileContainerComponent,
     ProfileComponent
   ],
   imports: [
@@ -54,6 +59,7 @@ import { ProfileComponent } from './shared/component/profile/profile.component';
   ],
   providers: [
     UsersService,
+    PostService,
     AuthGuard,
     IsAuthGuard
   ]

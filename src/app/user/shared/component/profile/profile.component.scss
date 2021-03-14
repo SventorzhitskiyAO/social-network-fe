@@ -1,0 +1,44 @@
+.info-profile {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+
+  &:first-child {
+    margin-top: 25px;
+  }
+
+  span {
+    display: block;
+    border-bottom: 1px solid #e7edf2;
+  }
+
+  &-name {
+    background-color: #f8f9fb;
+    width: 40%;
+    padding: 10px 0 10px 15px;
+    margin-left: 10px;
+
+  }
+
+  &-value {
+    width: 60%;
+    padding: 10px 0 10px 15px;
+    margin-right: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &-network {
+    padding: 5px 20px;
+    transition: all ease .3s;
+    &:hover {
+      fill: #6f42c1;
+    }
+    svg {
+      width: 35px;
+      height: 50px;
+    }
+  }
+}

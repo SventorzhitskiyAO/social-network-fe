@@ -1,31 +1,14 @@
-<!--<section class="user-inf">-->
-<!--  <div>-->
-<!--    <div class="user__prop">Name: {{user?.name}}</div>-->
-<!--    <div class="user__prop">Login: {{user.login}}</div>-->
-<!--    <div class="user__prop">Role: {{user.role}}</div>-->
-<!--  </div>-->
-
-<!--  <ng-container *ngIf="me && me._id == user._id">-->
-<!--    &lt;!&ndash;    <app-user-change-container></app-user-change-container>&ndash;&gt;-->
-<!--    &lt;!&ndash;    <app-user-delete-container></app-user-delete-container>&ndash;&gt;-->
-<!--  </ng-container>-->
-<!--</section>-->
-
-
 <div>
   <div class='cover-image'>
-
   </div>
   <div class='border container'>
     <div class='information app-wrapper'>
-
       <div class='information-avatar'>
-        <img src="../../../assets/images/user.png" alt="" class='information-avatar-img'>
-        <h3 class='information-avatar-name'>{{user.name}}</h3>
+        <img src="{{ImageSrc()}}" alt="" class='information-avatar-img'>
+        <h3 class='information-avatar-name'>{{user.login}}</h3>
       </div>
-
       <nav class='information-nav'>
-        <a class='information-nav-element'>
+        <a class='information-nav-element' [routerLink]="['']">
           <div class='information-nav-img'>
             <svg x="0px" y="0px" viewBox="0 0 50 50">
               <g id="Layer_1">
@@ -46,7 +29,7 @@
           </div>
           <span class='information-nav-name'>Activity</span>
         </a>
-        <a class='information-nav-element'>
+        <a class='information-nav-element' [routerLink]="['profile']">
           <div class='information-nav-img'>
             <svg viewBox="0 0 32 32">
               <path d="M16,13.29A6.15,6.15,0,1,0,9.86,7.14,6.15,6.15,0,0,0,16,13.29ZM16,
@@ -58,7 +41,7 @@
           </div>
           <span class='information-nav-name'>Profile</span>
         </a>
-        <a class='information-nav-element'>
+        <a class='information-nav-element' [routerLink]="['friend']">
           <div class='information-nav-img'>
             <svg viewBox="0 0 62 62">
               <path
@@ -74,7 +57,7 @@
           </div>
           <span class='information-nav-name'>Friends</span>
         </a>
-        <a class='information-nav-element'>
+        <a class='information-nav-element' [routerLink]="['setting']">
           <div class='information-nav-img'>
             <svg enable-background="new 0 0 70 70" viewBox="0 0 70 70">
               <path
@@ -86,8 +69,20 @@
           <span class='information-nav-name'>Setting</span>
         </a>
       </nav>
-
-
     </div>
+  </div>
+</div>
+
+<div class='app-wrapper container'>
+  <div class=connections>
+    <div class=connections-count>
+      <span class=connections-count__purple>15</span> <br/> Friends
+    </div>
+    <div class=connections-count>
+      <span class='connections-count__purple'>{{post.length}}</span> <br/> Posts
+    </div>
+  </div>
+  <div class='content'>
+    <router-outlet></router-outlet>
   </div>
 </div>

@@ -1,8 +1,19 @@
-<section class="container">
-  <h2 class="user__title">All Users</h2>
-  <a *ngFor="let user of users" class="user" [routerLink]="['/users', user._id]">
-    <span class="user__prop">Name: {{user.name}}</span>
-    <span class="user__prop">Login: {{user.login}}</span>
-    <span class="user__prop">Role: {{user.role}}</span>
-  </a>
+<section class="container flex user-container">
+  <div *ngFor="let user of users" class="user">
+    <a [routerLink]="['/users', user._id]">
+      <div>
+        <img src="./assets/images/user.png" class='user-photo'/>
+      </div>
+      <span class='user-info'>{{user.login}}</span>
+    </a>
+    <div class="user-button">
+      <button mat-button class="button">Add friend</button>
+    </div>
+  </div>
+
+</section>
+
+<section class='flex user-container'>
+
+
 </section>

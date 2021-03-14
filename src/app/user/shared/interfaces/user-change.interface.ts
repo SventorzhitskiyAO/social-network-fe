@@ -1,7 +1,16 @@
 export class UserChangeInterface {
-  id?: string;
-  login?: string;
-  name?: string;
+  id: string;
+  login: string;
+  email: string;
+  firstName?: string;
+  secondName?: string;
+  avatar?: string;
+  role?: string;
   password?: string;
-  passwordConfirm?: string;
+  facebook?: string;
+  vk?: string;
+  github?: string;
+  instagram?: string;
+  skill?: string;
+  aboutMe?: string;
 }
