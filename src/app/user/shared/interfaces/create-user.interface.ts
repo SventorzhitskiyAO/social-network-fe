@@ -1,7 +1,8 @@
 export class CreateUserInterface {
-  name: string;
+  email: string;
   login: string;
-  role: string;
+  name: string;
+  secondName: string;
   password: string;
   passwordConfirm: string;
 }

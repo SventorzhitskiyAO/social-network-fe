@@ -24,8 +24,7 @@ export class CreateUserPageComponent implements OnInit, OnDestroy {
     private usersService: UsersService,
     private store: Store<AppState>,
     private router: Router
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.myForm = new FormGroup({
@@ -39,6 +38,16 @@ export class CreateUserPageComponent implements OnInit, OnDestroy {
           Validators.minLength(3),
           Validators.maxLength(30),
           Validators.email
+        ]),
+        firstName: new FormControl(null, [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(30),
+        ]),
+        secondName: new FormControl(null, [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(30),
         ]),
         password: new FormControl(null, [
           Validators.required,
@@ -56,7 +65,6 @@ export class CreateUserPageComponent implements OnInit, OnDestroy {
         takeUntil(this.unsubscribe)
       )
       .subscribe(value => {
-        console.log(this.myForm);
       });
   }
 
@@ -71,7 +79,6 @@ export class CreateUserPageComponent implements OnInit, OnDestroy {
       filter(value => !!value),
       take(1),
       map(res => {
-        console.log(res);
         return {login: true};
       })
     );

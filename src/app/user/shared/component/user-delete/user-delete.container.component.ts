@@ -13,7 +13,6 @@ import {UsersService} from '../../services/users.service';
 export class UserDeleteContainerComponent implements OnInit, OnDestroy{
   id: string;
   private subscription: Subscription;
-  private deleteSubscription: Subscription;
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -35,10 +34,6 @@ export class UserDeleteContainerComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
     if (!!this.subscription) {
       this.subscription.unsubscribe();
-    }
-
-    if (!!this.deleteSubscription) {
-      this.deleteSubscription.unsubscribe();
     }
   }
 }

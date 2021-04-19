@@ -17,17 +17,21 @@ export class UserChangeComponent implements OnInit {
   myForm: FormGroup;
 
   ngOnInit(): void {
+    this.generateChangeForm(this.user);
+  }
+
+  public generateChangeForm(user): void {
     this.myForm = new FormGroup({
-      firstName: new FormControl(this.user.firstName),
-      secondName: new FormControl(this.user.secondName),
-      login: new FormControl(this.user.login),
-      email: new FormControl(this.user.email),
-      facebook: new FormControl(this.user.facebook),
-      vk: new FormControl(this.user.vk),
-      github: new FormControl(this.user.github),
-      instagram: new FormControl(this.user.instagram),
-      skill: new FormControl(this.user.skill),
-      aboutMe: new FormControl(this.user.aboutMe),
+      firstName: new FormControl(user.firstName),
+      secondName: new FormControl(user.secondName),
+      login: new FormControl(user.login),
+      email: new FormControl(user.email),
+      facebook: new FormControl(user.facebook),
+      vk: new FormControl(user.vk),
+      github: new FormControl(user.github),
+      instagram: new FormControl(user.instagram),
+      skill: new FormControl(user.skill),
+      aboutMe: new FormControl(user.aboutMe),
       password: new FormControl('', Validators.pattern('[a-zA-Z0-9]{3,30}')),
       passwordConfirm: new FormControl('', Validators.pattern('[a-zA-Z0-9]{3,30}'))
     });

@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserInterface} from '../shared/interfaces/user.interface';
 import {PostInterface} from '../shared/interfaces/post.interface';
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-user',
@@ -19,27 +19,33 @@ export class UserPageComponent implements OnInit{
   post: PostInterface[];
 
   @Output()
-  submitUpdate: EventEmitter<UserInterface> = new EventEmitter<UserInterface>();
+  submitUpdate: EventEmitter<any> = new EventEmitter<any>();
 
-  myForm: FormGroup;
+  fileToUpload: File = null;
+  _imageUrlNotSanitized: SafeUrl;
+
+  constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
-    this.myForm = new FormGroup({
-      name: new FormControl(this.user.firstName),
-      login: new FormControl(this.user.login),
-      password: new FormControl('', Validators.pattern('[a-zA-Z0-9]{3,30}')),
-      passwordConfirm: new FormControl('', Validators.pattern('[a-zA-Z0-9]{3,30}'))
-    });
+    this._imageUrlNotSanitized = this.sanitizer.bypassSecurityTrustUrl('http://localhost:3000/' + this.user.avatar);
   }
 
-  submit(): void{
-    this.submitUpdate.emit(this.myForm.value);
-  }
-
-  ImageSrc(): string {
-    if (this.user.avatar === '') {
+  ImageSrc(): string | SafeUrl {
+    if (this.user.avatar === '' || this.user.avatar === undefined) {
       return '../../../assets/images/user.png';
     }
-    return this.user.avatar;
+    return this._imageUrlNotSanitized;
+  }
+
+  onChangeImg(): any {
+    document.querySelector<HTMLElement>('#photo').click();
+  }
+
+  changeImg(event: any): void {
+    this.fileToUpload = (event.target.files[0] as File);
+
+    const fd = new FormData();
+    fd.append('image', this.fileToUpload, this.fileToUpload.name);
+    this.submitUpdate.emit(fd);
   }
 }

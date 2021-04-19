@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
-import {debounceTime, map, switchMap, tap} from 'rxjs/operators';
+import {map, switchMap} from 'rxjs/operators';
 import {UsersService} from '../../user/shared/services/users.service';
 import {
   ChangeUser,
@@ -50,7 +50,6 @@ export class UserEffects {
       ofType(UserActions.Login),
       switchMap((action: Login) => this.userServices.login(action.payload)),
       map((user) => new GetUserLoginSuccess(user.user)),
-      // map((user) => new GetUserSuccess(user.user))
     );
   });
 

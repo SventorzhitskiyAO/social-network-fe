@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {UsersContainerComponent} from './users-page/users-page.container';
+import {UsersContainerComponent} from './users-page/users-page.container.component';
 import {UsersPageComponent} from './users-page/users-page.component';
 import {UserContainerComponent} from './user-page/user-page.container.component';
 import {UserPageComponent} from './user-page/user-page.component';
@@ -27,6 +27,7 @@ import { ProfileComponent } from './shared/component/profile/profile.component';
 import {ProfileContainerComponent} from './shared/component/profile/profile.container.component';
 import {PostService} from './shared/services/post.service';
 import {PostContainerComponent} from './shared/component/post/post.container.component';
+import {FriendService} from './shared/services/friend.service';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import {PostContainerComponent} from './shared/component/post/post.container.com
   providers: [
     UsersService,
     PostService,
+    FriendService,
     AuthGuard,
     IsAuthGuard
   ]

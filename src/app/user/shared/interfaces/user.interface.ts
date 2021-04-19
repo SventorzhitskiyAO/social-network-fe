@@ -4,8 +4,7 @@ export class UserInterface {
   email: string;
   firstName: string;
   secondName: string;
-  avatar: string;
-  role: string;
+  avatar?: string;
   password: string;
   facebook: string;
   vk: string;

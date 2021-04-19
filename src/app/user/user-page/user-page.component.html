@@ -4,8 +4,11 @@
   <div class='border container'>
     <div class='information app-wrapper'>
       <div class='information-avatar'>
-        <img src="{{ImageSrc()}}" alt="" class='information-avatar-img'>
-        <h3 class='information-avatar-name'>{{user.login}}</h3>
+        <div>
+          <img [src]="ImageSrc()" alt="" class='information-avatar-img' (click)="onChangeImg()">
+          <input type="file" class='change-photo' (change)="changeImg($event)" id="photo">
+        </div>
+        <h3 class='information-avatar-name'>{{user.firstName}} {{user.secondName}}</h3>
       </div>
       <nav class='information-nav'>
         <a class='information-nav-element' [routerLink]="['']">
@@ -57,7 +60,7 @@
           </div>
           <span class='information-nav-name'>Friends</span>
         </a>
-        <a class='information-nav-element' [routerLink]="['setting']">
+        <a class='information-nav-element' [routerLink]="['setting']" *ngIf="user._id === me._id">
           <div class='information-nav-img'>
             <svg enable-background="new 0 0 70 70" viewBox="0 0 70 70">
               <path
@@ -76,7 +79,7 @@
 <div class='app-wrapper container'>
   <div class=connections>
     <div class=connections-count>
-      <span class=connections-count__purple>15</span> <br/> Friends
+      <span class=connections-count__purple>1</span> <br/> Friends
     </div>
     <div class=connections-count>
       <span class='connections-count__purple'>{{post.length}}</span> <br/> Posts

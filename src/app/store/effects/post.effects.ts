@@ -4,7 +4,7 @@ import {PostService} from '../../user/shared/services/post.service';
 import {CreatePost, CreatePostSuccess, DeletePost, GetPosts, GetPostsSuccess, PostActions} from '../actions/post.action';
 import {map, switchMap} from 'rxjs/operators';
 import {PostInterface} from '../../user/shared/interfaces/post.interface';
-import {pipe} from 'rxjs';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class PostEffects {
@@ -13,7 +13,7 @@ export class PostEffects {
     private actions$: Actions,
   ) {}
 
-  getPost$ = createEffect(() => {
+  getPost$: Observable<GetPostsSuccess> = createEffect(() => {
     return this.actions$.pipe(
       ofType<GetPosts>(PostActions.GetPosts),
       switchMap((action: GetPosts) => this.postService.getPost(action.payload)),

@@ -1,19 +1,13 @@
 <section class="container flex user-container">
   <div *ngFor="let user of users" class="user">
     <a [routerLink]="['/users', user._id]">
-      <div>
-        <img src="./assets/images/user.png" class='user-photo'/>
+      <div class="user-img">
+        <img [src]="ImageSrc(user.avatar)" class='user-photo' alt=""/>
       </div>
-      <span class='user-info'>{{user.login}}</span>
+      <span class='user-info'>{{user.firstName}} {{user.secondName}}</span>
     </a>
     <div class="user-button">
       <button mat-button class="button">Add friend</button>
     </div>
   </div>
-
-</section>
-
-<section class='flex user-container'>
-
-
 </section>

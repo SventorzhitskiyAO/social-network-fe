@@ -8,7 +8,6 @@ import {Login} from '../../store/actions/user.action';
 import {authMe} from '../../store/selectors/user.selectors';
 import {UserInterface} from '../shared/interfaces/user.interface';
 import {UsersService} from '../shared/services/users.service';
-import {log} from 'util';
 
 @Component({
   selector: 'app-login-container',
@@ -17,7 +16,6 @@ import {log} from 'util';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginPageContainerComponent implements OnDestroy {
-  id: number;
   private subscription: Subscription;
 
   constructor(

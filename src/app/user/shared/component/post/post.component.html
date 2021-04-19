@@ -11,12 +11,11 @@
 <div *ngFor="let post of posts">
   <div class="post">
     <div class="post-header">
-      <img src="./assets/images/user.png" alt="" class="post__img">
+      <img [src]="ImageSrc()" alt="" class="post__img">
       <div class="post__info">
-        <span class="post__info-name">Full name</span>
+        <span class="post__info-name">{{user.firstName}} {{user.secondName}}</span>
         <span class="post__info-time">
-<!--          {{post.createdAt}}-->
-          Time
+          {{timestampToDate(post.createdAt)}}
         </span>
       </div>
     </div>

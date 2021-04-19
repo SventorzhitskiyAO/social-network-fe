@@ -25,7 +25,8 @@
     }
 
     &-img {
-      width: 200px;
+      width: 150px;
+      height: 200px;
       margin-bottom: .75rem;
       border-radius: 1rem;
       margin-top: -150px;
@@ -34,6 +35,7 @@
       transition: all ease .5s;
       overflow: hidden;
       cursor: pointer;
+      object-fit: cover;
 
       &:hover {
         transform: scale(1.1);
@@ -174,4 +176,8 @@
       font-weight: 600;
     }
   }
+}
+
+.change-photo {
+  display: none;
 }

@@ -12,7 +12,6 @@ import {authMe} from '../../store/selectors/user.selectors';
 export class IsAuthGuard implements CanActivate{
   constructor(
     private router: Router,
-    private service: UsersService,
     private store: Store<AppState>
   ) {}
 
@@ -27,7 +26,7 @@ export class IsAuthGuard implements CanActivate{
       this.store.select(authMe).pipe(
         filter(value => !!value),
         map(res => this.router.navigate(['/users', res._id]))
-      ).subscribe(); // todo отписаться
+      ).subscribe();
     } else {
       return true;
     }

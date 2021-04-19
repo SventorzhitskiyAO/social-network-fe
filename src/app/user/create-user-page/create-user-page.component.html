@@ -18,6 +18,24 @@
   </div>
   <div class="form-group">
     <mat-form-field appearance="legacy">
+      <mat-label>Enter your name</mat-label>
+      <label>
+        <input matInput placeholder="First name" autocomplete="off" class="form-control" name="firstName"
+               formControlName="firstName">
+      </label>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field appearance="legacy">
+      <mat-label>Enter your second name</mat-label>
+      <label>
+        <input matInput placeholder="Second name" autocomplete="off" class="form-control" name="secondName"
+               formControlName="secondName">
+      </label>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field appearance="legacy">
       <mat-label>Enter your password</mat-label>
       <input matInput placeholder="Password" autocomplete="off" class="form-control" name="password"
              formControlName="password" [type]="hide ? 'password' : 'text'">

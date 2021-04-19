@@ -1,1 +1,12 @@
-<p>music works!</p>
+<ngx-audio-player [playlist]="musics"
+                  [autoPlay]="false"
+                  muted="muted"
+                  [displayPlaylist]="DisplayPlayList"
+                  [pageSizeOptions]="PageSizeOptions"
+                  [displayArtist]="DisplayArtist"
+                  [displayDuration]="DisplayDuration"
+                  [expanded]="true"
+                  [displayVolumeControls]="DisplayVolumeControls"
+                  [displayRepeatControls]="DisplayRepeatControls"
+                  [disablePositionSlider]="DisablePositionSlider">
+</ngx-audio-player>

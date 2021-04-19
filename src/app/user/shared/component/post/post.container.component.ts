@@ -3,17 +3,19 @@ import {Subscription} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../../../store/state/app.state';
-import {CreatePost, DeletePost, GetPosts} from '../../../../store/actions/post.action';
+import {CreatePost, DeletePost} from '../../../../store/actions/post.action';
 import {selectPostList} from '../../../../store/selectors/post.selectors';
+import {selectSelectedUser} from '../../../../store/selectors/user.selectors';
 
 @Component({
   selector: 'app-container-post',
-  template: `<app-post *ngIf="post$ | async as posts" [posts]="posts" (createPost)="submit($event)" (deletePost)="remove($event)"></app-post>`
+  template: `<app-post *ngIf="post$ | async as posts" [posts]="posts" (createPost)="submit($event)" (deletePost)="remove($event)" [user] = "user$ | async"></app-post>`
 })
 export class PostContainerComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   id: string;
   post$ = this.store.select(selectPostList);
+  user$ = this.store.select(selectSelectedUser);
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -22,7 +24,6 @@ export class PostContainerComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.activateRoute.params.subscribe(params => this.id = params.id);
-    this.store.dispatch(new GetPosts(this.id));
   }
 
   submit(text): any {

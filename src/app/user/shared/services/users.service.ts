@@ -53,8 +53,13 @@ export class UsersService {
   }
 
   change(body: UserChangeInterface): Observable<any> {
-    console.log(body);
-    return this.http.put(`${this.url}/users/${body.id}`, body);
+    const id = body.id;
+    if (body.avatar) {
+      body = body.avatar;
+    }
+    return this.http.put(`${this.url}/users/${id}`, body, {
+      headers: {enctype: 'multipart/form-data'}
+    });
   }
 
   getBoolLogin(l: string): Observable<any> {
